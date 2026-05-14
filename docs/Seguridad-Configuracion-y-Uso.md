@@ -93,7 +93,7 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable()) // Deshabilitado para APIs REST (stateless)
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/scalar/**", "/").permitAll()
+                .requestMatchers("/api-docs/**", "/swagger-ui/**", "/scalar/**", "/").permitAll()
                 // Configuración de autorización por métodos HTTP
                 .requestMatchers(HttpMethod.GET, "/api/**").hasAnyRole("ADMIN", "USER")
                 .requestMatchers(HttpMethod.POST, "/api/**").hasRole("ADMIN")
