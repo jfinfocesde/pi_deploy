@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: cesde-backend-api
+    runtime: docker
+    plan: free
+    envVars:
+      - key: DB_URL
+        fromDatabase:
+          name: cesde-db
+          property: connectionString
+      - key: DB_USERNAME
+        fromDatabase:
+          name: cesde-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: cesde-db
+          property: password
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+
+databases:
+  - name: cesde-db
+    plan: free
+    databaseName: cesde_app_db
+    user: cesde_user
