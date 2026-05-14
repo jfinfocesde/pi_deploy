@@ -26,7 +26,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 // Rutas públicas (Swagger, Scalar y documentación)
                 .requestMatchers(
-                    "/v3/api-docs/**",
+                    "/api-docs/**",
                     "/swagger-ui/**",
                     "/swagger-ui.html",
                     "/scalar/**",
